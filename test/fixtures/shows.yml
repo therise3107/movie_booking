@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  movie: one
+  theater: one
+  bookings_count: 1
+  start_time: 2016-09-21 20:02:53
+
+two:
+  movie: two
+  theater: two
+  bookings_count: 1
+  start_time: 2016-09-21 20:02:53

@@ -1,0 +1,17 @@
+<%- if user_signed_in? %>
+	<% if current_user.shows.include?(show) %>
+		<%- if (show.start_time > Time.now) %>
+			<td><%= link_to "Cancel", show_booking_path(show), method: :delete, :data=> {confirm: "Are your Sure?"}%></td>
+		<% else %>
+			<td>You Watched this movie</td>
+		<% end %>
+	<% else %>
+		<%- if (show.start_time < Time.now) %>
+			<td>You cannot book</td>
+		<% else %>
+			<td><%= render 'bookings/form', {:@show => show} %></td>
+		<% end %>
+	<% end %>
+<% else%>
+	<td>Sign in Book</td>
+<% end %>

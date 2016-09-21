@@ -1,0 +1,31 @@
+<div class="container">
+<%= @movie.name %>
+<br/>
+<%= Time.now%> 
+<p class="text-danger">Apply this coupoun "adcd"</p>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Theater</th>
+			<th>Timings</th>	
+			<th>Seats Available</th>
+			<th>Price</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @shows.each do |show| %>
+
+			<tr>
+				<td><%= show.theater.name %></td>
+				<td><%= show.start_time.strftime("%d-%a %H:00") %></td>
+				<td><%= show.seats %></td>
+				<td><%= price_helper(@movie.fee) %></td>
+				<%= render  'movies/book_link', {:show => show}%>
+			</tr>
+		<% end %>
+		
+	</tbody>
+</table>
+
+</div>

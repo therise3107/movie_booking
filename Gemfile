@@ -47,6 +47,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
+  gem "bullet"
 
 end
 
@@ -59,7 +60,7 @@ gem 'annotate', github: 'ctran/annotate_models'
 gem 'devise'
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'friendly_id', '~> 5.1.0'
-
+gem 'local_time'
 
 
 
