@@ -22,6 +22,7 @@
 #
 
 class Show < ApplicationRecord
+  include Filterable
 
   belongs_to :movie
   belongs_to :theater
@@ -29,9 +30,13 @@ class Show < ApplicationRecord
   has_many :users, through: :bookings
   validates :bookings, length: { maximum: 100 }
 
+  scope :theater_name, -> (name){ where(theater: Theater.find_by(name: name )) }
+
   def seats
   	100 - (self.bookings_count || 0)
   end
+
+
 
 
 end

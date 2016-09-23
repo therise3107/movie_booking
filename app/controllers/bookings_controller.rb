@@ -46,7 +46,7 @@ class BookingsController < ApplicationController
 			@coupoun = Coupon.find_by(name: params[:coupon])
 			@price = (@price - (@coupoun.discount.to_f/@price * 100) ).to_i
 		rescue => e
-			@price	
+			redirect_to @show.movie, alert: "InValid Coupoun"	
 		end
 		
 	end

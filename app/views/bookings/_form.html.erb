@@ -1,5 +1,5 @@
 
 <%= form_for(Booking.new, url: show_booking_path(@show) )do |f| %>
-	<%= text_field_tag(:coupon, nil, placeholder: "add coupon", class: "form-control")%>
-	<%= f.submit 'Book', class: 'btn btn-primary'%>
+	<%= text_field_tag(:coupon, nil, placeholder: "add coupon", class: "form-control form-control-sm pad_width")%>
+	<%= f.submit 'Book', class: 'btn btn-sm btn-primary'%>
 <% end %>

@@ -10,6 +10,11 @@
 #
 
 class Movie < ApplicationRecord
+	
+
 	has_many :shows
 	has_many :theaters, through: :shows
+	
+
+
 end

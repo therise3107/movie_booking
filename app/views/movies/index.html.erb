@@ -1,8 +1,23 @@
 <div class="container">
-<h3>List of all Movies </h3>
-<ul>
+<h3>Welcome to Movie Booking </h3>
+<hr/>
+<div class="row">
 <% @movies.each do |movie| %>
-	<li><%= link_to movie.name, movie_path(movie) %></li>
+<div class="col-sm-6">
+<div class="card">
+  <div class=" card-block">
+    <h4 class="card-title"><%= movie.name %></h4>
+    <p class="card-text">This movie is running in <%= movie.theaters.count %> theaters in <%= movie.shows.count %> Shows , price for each ticket is <%= price_helper(movie.fee) %></p>
+    <%= link_to movie_path(movie) do %>
+    	<button class="btn btn-primary">Book Movie</button>
+    <% end %>
+  </div>
+   <div class="card-footer text-muted">
+    released 2 days back
+  </div>
+</div>
+</div>
 <% end %>
-</ul>
+</div>
+
 </div>
