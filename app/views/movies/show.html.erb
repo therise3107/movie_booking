@@ -15,7 +15,6 @@
 	</thead>
 	<tbody>
 		<% @shows.each do |show| %>
-
 			<tr>
 				<td><%= show.theater.name %></td>
 				<td><%= show.start_time.strftime("%d-%a %H:00") %></td>
@@ -23,9 +22,9 @@
 				<td><%= price_helper(@movie.fee) %></td>
 				<%= render  'movies/book_link', {:show => show}%>
 			</tr>
-		<% end %>
-		
+		<% end %>		
 	</tbody>
 </table>
+<%= will_paginate @shows %>
 
 </div>

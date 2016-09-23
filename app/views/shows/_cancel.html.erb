@@ -1,0 +1,5 @@
+<%- if (show.start_time > Time.now) %>
+	<%= link_to "Cancel", show_booking_path(show), method: :delete, :data=> {confirm: "Are your Sure?"}%>
+<% else %>
+	You Watched this movie
+<% end %>

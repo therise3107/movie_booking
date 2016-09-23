@@ -30,5 +30,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :bookings
-  has_many :shows, through: :bookings       
+  has_many :shows, through: :bookings 
+
+  def gender_discount
+  	self.gender == "female" ? 5 : 0
+  end
+
 end

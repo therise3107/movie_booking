@@ -1,0 +1,20 @@
+<div class="container">
+<table class="table">
+	<thead><tr>
+		<th>Booking</th>
+		<th>Total</th>
+		<th>Timings</th>
+		<th>Action</th>
+	</tr></thead>
+	<tbody>
+	<% @bookings.each do |booking| %>
+		<tr>
+		<td><%= booking.movie_name %></td>
+		<td><%=  booking.total%></td>
+		<td><%= booking.show.start_time.strftime("%h %d %H:00")%></td>
+		<td><%= render "shows/cancel", {:show => booking.show}%></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
+</div>
