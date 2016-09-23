@@ -62,7 +62,7 @@ gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'friendly_id', '~> 5.1.0'
 gem 'local_time'
 gem 'will_paginate', github: 'jonatack/will_paginate'
-
+gem "figaro"
 
 
 

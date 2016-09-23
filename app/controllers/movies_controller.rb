@@ -5,8 +5,8 @@ class MoviesController < ApplicationController
   end
 
   def show
-  	@movie = Movie.find(params[:id])
-    @theaters = @movie.theaters.includes(:shows).uniq
+  	@movie = Movie.friendly.find(params[:id])
+    @theaters = @movie.theaters.includes(:shows).uniq.order(name: :asc)
   	@shows = @movie.shows.filter(filterable_params).includes(:theater).paginate(:page => params[:page], :per_page => (params[:per_page]|| 5)).order('start_time desc')
   end
 

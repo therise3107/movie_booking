@@ -81,6 +81,9 @@ Rails.application.configure do
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  # mailer settings
+  config.action_mailer.default_url_options = { host: 'pure-headland-18047.herokuapp.com'}
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end

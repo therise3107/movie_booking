@@ -42,13 +42,15 @@ class BookingsController < ApplicationController
 
 	def apply_coupoun
 		@price = @show.movie.fee - current_user.gender_discount
-		begin
-			@coupoun = Coupon.find_by(name: params[:coupon])
-			@price = (@price - (@coupoun.discount.to_f/@price * 100) ).to_i
-		rescue => e
-			redirect_to @show.movie, alert: "InValid Coupoun"	
+		if params[:coupon].present?
+			begin
+				@coupoun = Coupon.find_by(name: params[:coupon])
+				@price = (@price - (@coupoun.discount.to_f/@price * 100) ).to_i
+			rescue => e
+				redirect_to @show.movie, alert: "Invalid Coupoun"	
+			end
 		end
-		
+		@price 
 	end
 
 	def validate_time
