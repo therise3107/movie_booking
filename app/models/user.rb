@@ -38,6 +38,9 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :shows, through: :bookings 
 
+  validates :name, presence: true
+  validates :gender, presence: true, inclusion: { in: ["male","female"] }
+
   def gender_discount
   	self.gender == "female" ? 5 : 0
   end
